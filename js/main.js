@@ -49,5 +49,3 @@ window.onload = function () {
         }
     });
 }
-// const textAsObject = JSON.parse(text);
-// console.log(textAsObject);
