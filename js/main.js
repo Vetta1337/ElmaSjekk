@@ -21,8 +21,8 @@ function done() {
         "Støtter EHF: " + sEHF;
     document.getElementById('annet').innerHTML =
         "Her er andre ting jeg har:" + "<br>" +
-        "Orginasjon navn: " + storedText.organizationName + "<br>" +
-        "Orginasjon nummer: " + storedText.organizationNumber + "<br>" +
+        "Organisasjon navn: " + storedText.organizationName + "<br>" +
+        "Organisasjon nummer: " + storedText.organizationNumber + "<br>" +
         "Registrert dato: " + storedText.registredDate + "<br>" +
         "Støtter EHF: " + storedText.supportingEHF;
     
