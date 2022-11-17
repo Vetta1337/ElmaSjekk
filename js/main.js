@@ -1,5 +1,11 @@
+var requestOptions = {
+    method: 'GET',
+    redirect: 'follow'
+  };
+
+
 function getElma(url) {
-    fetch(url)
+    fetch(url, requestOptions)
         .then(function (response) {
             response.json().then(function (text) {
                 storedText = text;
@@ -33,7 +39,7 @@ function done() {
 function updateOrgNr() {
     orgNr = document.getElementById("orgnr").value;
     console.log(orgNr);
-    getElma("https://advisorws.advnet.no/Invoice/api/EHF/GetELMARecord?organizationNumber=" + orgNr);
+    getElma("https://cors-anywhere.herokuapp.com/https://advisorws.advnet.no/Invoice/api/EHF/GetELMARecord?organizationNumber=" + orgNr);
 
 }
 
@@ -45,7 +51,7 @@ window.onload = function () {
     })
     document.addEventListener("keyup", function (event) {
         if (event.keyCode === 88) {
-            getElma("https://advisorws.advnet.no/Invoice/api/EHF/GetELMARecord?organizationNumber=917869405");
+            getElma("https://cors-anywhere.herokuapp.com/https://advisorws.advnet.no/Invoice/api/EHF/GetELMARecord?organizationNumber=917869405");
         }
     });
 }
