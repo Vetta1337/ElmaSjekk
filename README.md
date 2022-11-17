@@ -1,3 +1,3 @@
-# Org sjekker 
+# Hva gjøres?
 
-Veldig enkel org sjekker.
+Dette er en veldig enkel nettside for å sjekke om en bedrift støtter EHF.
