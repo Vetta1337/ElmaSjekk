@@ -3,7 +3,7 @@ var requestOptions = {
     redirect: 'follow'
 };
 
-var linkElma = "https://cors-anywhere.herokuapp.com/https://advisorws.advnet.no/Invoice/api/EHF/GetELMARecord?organizationNumber=";
+var linkElma = "https://advisorws.advnet.no/InvoiceTest/api/EHF/GetELMARecord?organizationNumber=";
 var version = "0.1.1";
 
 
