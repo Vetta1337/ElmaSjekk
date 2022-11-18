@@ -4,6 +4,11 @@ var requestOptions = {
 };
 
 var linkElma = "https://cors-anywhere.herokuapp.com/https://advisorws.advnet.no/Invoice/api/EHF/GetELMARecord?organizationNumber=";
+var version = "0.1.1";
+
+
+document.title = "EHF Sjekker v" + version;
+
 
 function getElma(url) {
     fetch(url, requestOptions)
