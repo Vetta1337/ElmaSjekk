@@ -4,7 +4,7 @@ var requestOptions = {
 };
 
 var linkElma = "https://advisorws.advnet.no/InvoiceTest/api/EHF/GetELMARecord?organizationNumber=";
-var version = "0.1.2";
+var version = "0.1.2.1";
 
 
 document.title = "EHF Sjekker v" + version;
@@ -52,6 +52,7 @@ function clearDone() {
     document.getElementById("result").style.color = "white";
     document.getElementById("result").innerHTML = "Søker...";
     document.getElementById("annet").innerHTML = "";
+    document.getElementById("orgnr").style.color = "white";
 };
 
 function updateOrgNr() {
@@ -61,13 +62,12 @@ function updateOrgNr() {
     console.log(orgNr);
     console.log(orgNr.length);
     if (orgNr.length == 9) {
-        document.getElementById("form__label").style.color = "#38ef7d";
         console.log(orgNr);
         getElma(linkElma + orgNr);
         console.log(orgNr.length);
         document.getElementById("feilMeldinger").innerHTML = "";
     } else {
-        document.getElementById("form__label").style.color = "red";
+        document.getElementById("orgnr").style.color = "red";
         document.getElementById("feilMeldinger").style.color = "red";
         console.log("Ugyldig organisasjonsnummer");
         document.getElementById("feilMeldinger").innerHTML =

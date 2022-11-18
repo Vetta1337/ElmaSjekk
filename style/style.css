@@ -21,13 +21,26 @@ h2 {
 	padding: 0;
 }
 
+
+
 /* two divs with id left and right be vertical on phone */
 @media screen and (max-width: 800px) {
 	#left, #right {
 		display: block;
 		width: 100%;
 		padding: 20px;
+		
 	}
+	.button {
+		background-color: #333;
+		color: #38ef7d;
+		border: 1px solid #38ef7d; /* Green */
+		border-radius: 25px;
+		padding: 10px;
+		text-align: center;
+		font-size: 1em;
+		font-weight: 400;
+	  }
 }
 
 /* two divs with id left and right be horizontal on tablet and desktop */
@@ -37,6 +50,9 @@ h2 {
 		width: 50%;
 		height: 20rem;
 	}
+	.button {
+		display: none;
+	  }
 	#left {
 		float: left;
 		width: 45%;
@@ -69,40 +85,33 @@ h2 {
 	 background: transparent;
 	 transition: border-color 0.2s;
 }
- .form__field::placeholder {
-	 color: transparent;
-}
- .form__field:placeholder-shown ~ .form__label {
-	 font-size: 1.3rem;
-	 cursor: text;
-	 top: 20px;
-}
- .form__label {
-	 position: absolute;
-	 top: 0;
-	 display: block;
-	 transition: 0.2s;
-	 font-size: 1rem;
-	 color: #38ef7d;
-}
  .form__field:focus {
 	 padding-bottom: 6px;
-	 font-weight: 700;
 	 border-width: 3px;
 	 border-image: linear-gradient(to right, #11994e, #38ef7d);
 	 border-image-slice: 1;
 }
- .form__field:focus ~ .form__label {
-	 position: absolute;
-	 top: 0;
-	 display: block;
-	 transition: 0.2s;
-	 font-size: 1rem;
-	 color: #38ef7d;
+ .form__field:focus {
+	 padding-bottom: 6px;
+	 border-width: 3px;
+	 border-image: linear-gradient(to right, #11994e, #38ef7d);
+	 border-image-slice: 1;
 }
+
 /* reset input */
  .form__field:required, .form__field:invalid {
 	 box-shadow: none;
 }
 
- 
+ ::placeholder {
+	 color: #38ef7d;
+}
+
+:-ms-input-placeholder {
+	 color: #38ef7d;
+}
+
+input {
+	border-radius: 0;
+  }
+
