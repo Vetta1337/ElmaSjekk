@@ -7,7 +7,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>EHF Sjekker</title>
     <script src="js/main.js"></script>
-    <link rel="stylesheet" href="style/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="style/style.css">
     <link rel="icon" href="https://ehalvorsen.dev/img/favi.png" type="image/png">
 
 </head>
@@ -15,17 +18,23 @@
 <body>
     <div>
         <div id="left">
-            <h1>EHF sjekker:</h1>
+            <h1><strong>EHF sjekker:</strong></h1>
             <p>Her sjekker du om bedriften kan motta EHF</p>
-            <input type="number" id="orgnr" placeholder="Orgnr">
-            <button type="button" onClick="updateOrgNr()">Sjekk</button>
+            <div class="form__group field">
+                <input type="input" class="form__field" placeholder="Orgnr" name="name" id='orgnr' required />
+                <label for="name" class="form__label" id="form__label">Org. nr.</label>
+              </div>
+            <p id="feilMeldinger"></p>
         </div>
         <div id="right">
-            <h1>Resultat</h1>
+            <h1>Resultat:</h1>
             <h2 id="result"></h2>
             <p id="annet"></p>
         </div>
     </div>
+
+
+
 </body>
 
 </html>

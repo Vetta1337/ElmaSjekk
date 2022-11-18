@@ -1,8 +1,9 @@
 var requestOptions = {
     method: 'GET',
     redirect: 'follow'
-  };
+};
 
+var linkElma = "https://cors-anywhere.herokuapp.com/https://advisorws.advnet.no/Invoice/api/EHF/GetELMARecord?organizationNumber=";
 
 function getElma(url) {
     fetch(url, requestOptions)
@@ -15,32 +16,62 @@ function getElma(url) {
         })
 };
 
+function fetchUrl(url) {
+    fetch(url)
+        .then(function (response) {
+            storedResponse = response.text();
+            console.log(storedResponse);
+        });
+}
+
 function done() {
     if (storedText.supportingEHF) {
         sEHF = "Ja";
-        document.getElementById("result").style.color = "green";
+        document.getElementById("result").style.color = "#38ef7d";
+        document.getElementById('annet').innerHTML =
+            "<strong>Her er andre ting jeg har:</strong>" + "<br>" +
+            "Organisasjon's navn: " + storedText.organizationName + "<br>" +
+            "Organisasjon's nummer: " + storedText.organizationNumber + "<br>" +
+            "Registrert dato: " + storedText.registredDate + "<br>";
     } else {
         sEHF = "Nei";
         document.getElementById("result").style.color = "red";
+        document.getElementById("annet").innerHTML =
+            "Organisasjon nummer: " + storedText.organizationNumber;
     };
-    document.getElementById("result").innerText = 
+    document.getElementById("result").innerHTML =
         "Støtter EHF: " + sEHF;
-    document.getElementById('annet').innerHTML =
-        "Her er andre ting jeg har:" + "<br>" +
-        "Organisasjon navn: " + storedText.organizationName + "<br>" +
-        "Organisasjon nummer: " + storedText.organizationNumber + "<br>" +
-        "Registrert dato: " + storedText.registredDate + "<br>" +
-        "Støtter EHF: " + storedText.supportingEHF;
-    
-
-
 }
 
-function updateOrgNr() {
-    orgNr = document.getElementById("orgnr").value;
-    console.log(orgNr);
-    getElma("https://cors-anywhere.herokuapp.com/https://advisorws.advnet.no/Invoice/api/EHF/GetELMARecord?organizationNumber=" + orgNr);
+function clearDone() {
+    document.getElementById("result").style.color = "white";
+    document.getElementById("result").innerHTML = "Søker...";
+    document.getElementById("annet").innerHTML = "";
+};
 
+function updateOrgNr() {
+    clearDone();
+    orgNr = document.getElementById("orgnr").value;
+    orgNr = orgNr.toString().replace(/\s/g, '');
+    console.log(orgNr);
+    console.log(orgNr.length);
+    if (orgNr.length == 9) {
+        document.getElementById("form__label").style.color = "#38ef7d";
+        console.log(orgNr);
+        getElma(linkElma + orgNr);
+        console.log(orgNr.length);
+        document.getElementById("feilMeldinger").innerHTML = "";
+    } else {
+        document.getElementById("form__label").style.color = "red";
+        document.getElementById("feilMeldinger").style.color = "red";
+        console.log("Ugyldig organisasjonsnummer");
+        document.getElementById("feilMeldinger").innerHTML =
+            "Feil:" + "<br>" +
+            "Ugyldig organisasjonsnummer og/eller feil format" + "<br>" +
+            "Skriv inn organisasjonsnummeret med 9 siffer";
+        document.getElementById("result").style.color = "lightred";
+        document.getElementById("result").innerHTML = "Noe gikk galt... :("; 
+    };
 }
 
 window.onload = function () {
@@ -51,7 +82,11 @@ window.onload = function () {
     })
     document.addEventListener("keyup", function (event) {
         if (event.keyCode === 88) {
-            getElma("https://cors-anywhere.herokuapp.com/https://advisorws.advnet.no/Invoice/api/EHF/GetELMARecord?organizationNumber=917869405");
+            document.getElementById("orgnr").value = "917869405";
+            updateOrgNr();
+        } else if (event.keyCode === 90) {
+            document.getElementById("orgnr").value = "91786940";
+            updateOrgNr();
         }
     });
 }
