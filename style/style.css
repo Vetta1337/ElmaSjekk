@@ -21,21 +21,34 @@ h2 {
 	padding: 0;
 }
 
-/* two divs with id left and right */
-#left {
-    display: inline;
-    float: left;
-    width: 45%;
-    padding: 20px 0 0 50px;; 
-    height: 20rem;
+/* two divs with id left and right be vertical on phone */
+@media screen and (max-width: 800px) {
+	#left, #right {
+		display: block;
+		width: 100%;
+		padding: 20px;
+	}
 }
 
-#right {
-    display: inline;
-    float: right;
-    width: 45%;
-    padding: 20px 10px 10px 10px;
-    height: 20rem;
+/* two divs with id left and right be horizontal on tablet and desktop */
+@media screen and (min-width: 800px) {
+	#left, #right {
+		display: inline-block;
+		width: 50%;
+		height: 20rem;
+	}
+	#left {
+		float: left;
+		width: 45%;
+		padding: 20px 0 0 50px;; 
+
+	}
+	#right {
+		float: right;
+		width: 45%;
+		padding: 20px 10px 10px 10px;
+
+	}
 }
 
 .form__group {
@@ -46,7 +59,7 @@ h2 {
 }
  .form__field {
 	 font-family: inherit;
-	 width: 35%;
+	 width: 7rem;
 	 border: 0;
 	 border-bottom: 2px solid #ffffff;
 	 outline: 0;

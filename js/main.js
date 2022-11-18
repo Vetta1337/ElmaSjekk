@@ -4,7 +4,7 @@ var requestOptions = {
 };
 
 var linkElma = "https://advisorws.advnet.no/InvoiceTest/api/EHF/GetELMARecord?organizationNumber=";
-var version = "0.1.1";
+var version = "0.1.2";
 
 
 document.title = "EHF Sjekker v" + version;
@@ -34,7 +34,7 @@ function done() {
         sEHF = "Ja";
         document.getElementById("result").style.color = "#38ef7d";
         document.getElementById('annet').innerHTML =
-            "<strong>Her er andre ting jeg har:</strong>" + "<br>" +
+            "<strong>Annen informasjon som er hentet:</strong>" + "<br>" +
             "Organisasjon's navn: " + storedText.organizationName + "<br>" +
             "Organisasjon's nummer: " + storedText.organizationNumber + "<br>" +
             "Registrert dato: " + storedText.registredDate + "<br>";
