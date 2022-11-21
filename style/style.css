@@ -1,28 +1,3 @@
-/* darkmode with dark gray*/
-body {
-    background-color: #333;
-    color: #fff;
-	font-family: 'Roboto', sans-serif;
-	font-weight: 300;
-    font-size: 20px;
-    margin: 0;
-    padding: 0;
-}
-
-h1 {
-	font-size: 2em;
-	font-weight: 400;
-	padding: 0;
-}
-
-h2 {
-	font-size: 1.5em;
-	font-weight: 400;
-	padding: 0;
-}
-
-
-
 /* two divs with id left and right be vertical on phone */
 @media screen and (max-width: 800px) {
 	#left, #right {
@@ -103,15 +78,18 @@ h2 {
 	 box-shadow: none;
 }
 
- ::placeholder {
-	 color: #38ef7d;
-}
-
-:-ms-input-placeholder {
-	 color: #38ef7d;
-}
-
 input {
 	border-radius: 0;
   }
 
+  html.dark a, html.dark .nav-link {
+	color: #38ef7d;
+  }
+  html.dark a:hover, html.dark .nav-link:hover {
+	color: #11994e;
+  }
+  
+
+/* stupid things */
+::placeholder {color: #38ef7d;}
+:-ms-input-placeholder {color: #38ef7d;}
