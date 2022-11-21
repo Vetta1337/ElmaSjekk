@@ -4,7 +4,7 @@ var requestOptions = {
 };
 
 var linkElma = "https://advisorws.advnet.no/InvoiceTest/api/EHF/GetELMARecord?organizationNumber=";
-var version = "0.1.2.1";
+var version = "0.1.3.0";
 
 
 document.title = "EHF Sjekker v" + version;
@@ -68,8 +68,8 @@ function updateOrgNr() {
         document.getElementById("feilMeldinger").innerHTML = "";
     } else {
         document.getElementById("orgnr").style.color = "red";
-        document.getElementById("feilMeldinger").style.color = "red";
         console.log("Ugyldig organisasjonsnummer");
+        document.getElementById("feilMeldinger").style.color = "red";
         document.getElementById("feilMeldinger").innerHTML =
             "Feil:" + "<br>" +
             "Ugyldig organisasjonsnummer og/eller feil format" + "<br>" +
