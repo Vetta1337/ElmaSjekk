@@ -1,4 +1,7 @@
-/* two divs with id left and right be vertical on phone */
+body {
+	font-family: 'Roboto', sans-serif;
+}
+
 @media screen and (max-width: 800px) {
 	#left, #right {
 		display: block;
