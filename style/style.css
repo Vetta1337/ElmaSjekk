@@ -88,6 +88,9 @@ input {
   html.dark a:hover, html.dark .nav-link:hover {
 	color: #11994e;
   }
+  html.dark a:focus, html.dark .nav-link:focus{
+	color: #11994e;
+  }
   
 
 /* stupid things */
